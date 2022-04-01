@@ -1,51 +1,36 @@
 var appForm = document.querySelector("#app form");
 
-appForm.onsubmit = dollar2cent;
+appForm.onsubmit = dolarprareal;
 
-function dollar2cent(e){
+function dolarprareal(e){
 	e.preventDefault();
 
-	var input_dollar = document.getElementById("input_dollar").value;
+	var input_taxa = document.getElementById("input_taxa").value;
+  var input_dollar = document.getElementById("input_dollar").value;
+  var input_real = document.getElementById("input_real").value;
 	var result = document.getElementById("result");
-	result.innerHTML = "";
+  var resultdollar = document.getElementById("resultdollar");
+  var resultreal = document.getElementById("resultreal");
 
-	var result_moedas = document.getElementById("result-moedas");
-	result_moedas.innerHTML = "";
 
-	var valor_cents = parseFloat(input_dollar)*100;
+	var result_dollar = document.getElementById("resultdollar");
 
-	result.innerHTML = valor_cents;
+	var valor_dollar = parseFloat(input_dollar);
+  var valor_taxa = parseFloat(input_taxa);
+  var valor_real = parseFloat(input_real);
 
-	var moedas = separarMoedas(valor_cents);
+	result.innerHTML = valor_dollar;
+  resultdollar.innerHTML = valor_dollar;
+  resultreal.innerHTML = valor_real;
 
-	result_moedas.innerHTML = "Quarters: " + moedas[0]
-	+ " Dimes: " + moedas[1] + " Nickels: " + moedas[2]
-	+ " Pennies: " + moedas[3];
+	var total = calculo(valor_dollar);
+
+	result_dollar.innerHTML = "Reusltado da conversão: " + total;
 }
 
-function separarMoedas(valor){
-	var total = valor;
-	
+function calculo(valor_dollar){
+	var total = valor_dollar;
 	var quarters = 0;
-	if(total >= 25){
-		quarters = parseInt(total/25);
-		total -= 25*quarters;
-	}
-	console.log(total);
-
-	var dimes = 0;
-	if(total >= 10){
-		dimes = parseInt(total/10);
-		total -= 10*dimes;
-	}
-
-	var nickels = 0;
-	if(total >= 5){
-		nickels = parseInt(total/5);
-		total -= 5*nickels;
-	}
-
-	var pennies = total;
-
-	return [quarters, dimes, nickels, pennies];
+  //var resultado = valor_taxa * valor_dollar;
+	return [total];
 }

@@ -9,32 +9,48 @@
 <body>
 	<div id="app" class="app">
 		<div class="content-title">
-			<h1>Dollars To Cents</h1>
+			<h1>Conversor dolar para real com taxa de conversão</h1>
 		</div>
 		<div class="content-form">
 			<form>
-				<input type="number" min="0" step="0.01" id="input_dollar" placeholder="Taxa de conversão:" />
+				<input type="number" min="0" step="0.01" id="input_taxa" placeholder="Taxa de conversão:" />
 				<button type="submit" class="btn-app">Confirmar taxa de conversão</button>
         <button type="submit" class="btn-app">Limpar taxa de conversão</button>
 			</form>
+    </div>
+      <div class="content-result">
+        <p>
+          Cotação inserida:
+          <span id="result"></span>
+        </p>
+      </div>
+      <div class="content-form">
       <form>
 				<input type="number" min="0" step="0.01" id="input_dollar" placeholder="Valor em real" />
 				<button type="submit" class="btn-app">Converter para Dolar</button>
 			</form>
+    </div>
+    <div class="content-result">
+			<p>
+				Valor: R$ 
+				<span id="resultdollar"></span>
+			</p>
+		</div>
+    <div class="content-form">
       <form>
-				<input type="number" min="0" step="0.01" id="input_dollar" placeholder="Valor em dolar" />
+				<input type="number" min="0" step="0.01" id="input_real" placeholder="Valor em dolar" />
 				<button type="submit" class="btn-app">Converter para Real</button>
 			</form>
 		</div>
 		<div class="content-result">
 			<p>
-				Cents (total):
-				<span id="result"></span>
+				Valor: $
+				<span id="resultreal"></span>
 			</p>
 		</div>
 		<div class="content-result">
 			<p>
-				Moedas:
+				Resultado da conversão:
 				<span id="result-moedas"></span>
 			</p>
 		</div>
